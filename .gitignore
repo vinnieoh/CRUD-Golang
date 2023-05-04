@@ -1,0 +1,17 @@
+# Arquivos objeto e binários
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Arquivos gerados por ferramentas de build
+/vendor/
+/Godeps/
+/bin/
+/pkg/
+/_test/
+
+# Arquivos de cache
+/.cache/
