@@ -1,6 +1,5 @@
 package config
 
-import "github.com/spf13/viper"
 
 var cfg *config
 
@@ -21,6 +20,3 @@ type DBConfig struct {
 	DataBase string
 }
 
-func init () {
-	viper.SetDefault("")
-}
