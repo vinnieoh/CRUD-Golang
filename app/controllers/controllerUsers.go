@@ -1,11 +1,16 @@
 package controllers
 
+import (
+	"gorm.io/gorm"
+)
 
-
-func DataBateConnct() {
-	
+type handler struct {
+	DB *gorm.DB
 }
 
+func DataBateConnct(db *gorm.DB) handler {
+	return handler{db}
+}
 
 func CreateUser() {
 

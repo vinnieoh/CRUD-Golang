@@ -1,21 +1,28 @@
 package config
 
 import (
-	"database/sql"
-	_ "github.com/lib/pq"
+	"api/app/models"
+	"log"
+
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 )
 
 
-func DataBaseConnect() (*sql.DB, error) {
+func DataBaseConnect() *gorm.DB {
+
+	
 	 
-	db, err := sql.Open("postgres", "host=localhost port=5432 user=aprenda password=golang dbname=blog sslmode=disable")
+	dbURL := "postgres://pg:pass@localhost:5432/crud"
+
+	db, err := gorm.Open(postgres.Open(dbURL), &gorm.Config{})
 
 	if err != nil {
-        panic(err)
+        log.Fatalln(err)
     }
 
-    err = db.Ping()
+    db.AutoMigrate(&models.User{})
 
-    return db, err
+    return db
 
 }
